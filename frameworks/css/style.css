@@ -1,2 +1,3 @@
 body { padding-top: 70px; }
-.head-snd-info {font-size: 2em;}
+.head-snd-info {font-size: 2em; color:#CECECE;}
+.enabled {color:#000000;}

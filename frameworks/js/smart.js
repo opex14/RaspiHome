@@ -1,6 +1,7 @@
 var hash = window.location.hash.substr(1);
 var wemo;
 var led;
+var radiols;
 var radio = "";
 var snd_status = "";
 if (hash.length == 0) {
@@ -82,6 +83,7 @@ function UpdateData() {
 
 
 function MakeRadio(data)	{
+	radiols = data;
 	for (var key in data['list']) {
 		var selected = '';
 		if(data['current'] == key) {selected = ' selected="selected"'}
@@ -89,19 +91,27 @@ function MakeRadio(data)	{
 		$("#radio_select").append(toappend);
 	}
 	   $('#radio_select').selectpicker('refresh');
-}
-$("#radio_select").change(function() {
-	var radi = $(this).val();
-	if(radi != 'false') {
-	$.ajax({
-            url: '/smart/php/index.php',
-            data: {d: 'radio', a: 'play', c: radi},
-            dataType: 'json',
-			success: GoodAnswer,
-			error: BadAnswer,
-        });
+	if($("#radio_select").val().length < 1) {
+		$(".radlsch").hide();
 	}
+}
+
+$("#radio_select").change(function() {
+		$(".radlsch").show();
 });
+
+// $("#radio_select").change(function() {
+	// var radi = $(this).val();
+	// if(radi != 'false') {
+	// $.ajax({
+            // url: '/smart/php/index.php',
+            // data: {d: 'radio', a: 'play', c: radi},
+            // dataType: 'json',
+			// success: GoodAnswer,
+			// error: BadAnswer,
+        // });
+	// }
+// });
 
 $("#led_mod").change(function() {
 	Send('led', 'send', 'POWER=1;MASTERMODE=2;MOD='+$(this).val()+";");
@@ -168,6 +178,15 @@ $( ".sendbtn" ).click(function() {
 	}
 	
 	}
+});
+
+$( ".radiobtn" ).click(function() {
+    var thisbtn = $(this);
+	var a = thisbtn.attr("data-a");
+	var c = $("#radio_select").val();
+	var wintx = "<body style='background-color: black;'><div class='container'><center><title>Radio: "+radiols['list'][c]['title']+"</title><audio src='"+radiols['list'][c]['url']+"' autoplay controls></audio></center></div></body><style>.container {position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);}</style>";
+	var newWin = window.open("about:blank", "Radio", "width=400,height=60");
+	newWin.document.write(wintx);
 });
 
 $( ".postbtn" ).click(function() {

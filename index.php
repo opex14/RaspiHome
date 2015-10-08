@@ -292,10 +292,13 @@
 	<button type="button" data-d="radio" data-a="stop" data-t="1" data-c="" class="btn btn-default sendbtn">
 	<span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
 	
-	<select id="radio_select" name="c" class="selectpicker"><option value="false">Радиостанции</option></select>
+	<select id="radio_select" name="c" class="selectpicker" title="Радиостанции"></select>
 	
-	<button type="button" data-d="radio" data-a="play" data-t="1" data-c="0" class="btn btn-default sendbtn">
+	<button type="button" data-d="radio" data-a="play" data-t="1" data-c="0" class="btn btn-default radlsch sendbtn">
 	<span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+	
+	<button type="button" data-a="local" class="btn btn-default radlsch radiobtn">
+	<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span></button>
 	<hr>
 	<button type="button" data-d="microlab" data-a="VOL_UP" data-t="1" data-c="" class="btn btn-default sendbtn">
 					<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span></button>

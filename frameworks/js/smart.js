@@ -19,6 +19,7 @@ $(document).ready(function(){
 		UpdateData();
 		setInterval("UpdateData()", 10000);
 		$("#menu_"+hash).addClass("active");
+		
 	if (hash == 'show_all') {
 	$(".main_section").show();
 	} else {

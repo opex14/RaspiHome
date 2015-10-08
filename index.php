@@ -44,11 +44,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" id="menuelms">
-        <li id="menu_show_all" class="menu_element"><a href="#show_all">all</a></li>
+        <li id="menu_show_all" class="menu_element"><a href="#show_all">Всё</a></li>
         <li id="menu_led" class="menu_element"><a href="#led">LED</a></li>
-        <li id="menu_sound" class="menu_element"><a href="#sound">snd</a></li>
-        <li id="menu_radio" class="menu_element"><a href="#radio">radio</a></li>
-        <li id="menu_radio" class="menu_element"><a href="php/settings.php">setup</a></li>
+        <li id="menu_sound" class="menu_element"><a href="#sound">Звук</a></li>
+        <li id="menu_radio" class="menu_element"><a href="#radio">Радио</a></li>
+        <li id="menu_radio" class="menu_element"><a href="php/settings.php">Настройки</a></li>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -82,7 +82,7 @@
 </div>
 </div>
 
-<div class="container main_section widthfix" id="section_led">
+<div class="container main_section widthfix" style="display: none;" id="section_led">
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Управление LED</h3>
@@ -128,7 +128,7 @@
 </div>
 </div>
 
-<div class="container main_section widthfix" id="section_sound">
+<div class="container main_section widthfix" style="display: none;" id="section_sound">
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Звук</h3>
@@ -273,7 +273,7 @@
 </div>
 </div>
 
-<div class="container main_section widthfix" id="section_radio">
+<div class="container main_section widthfix" style="display: none;" id="section_radio">
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Онлайн радио</h3>

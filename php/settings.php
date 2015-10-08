@@ -96,11 +96,11 @@ foreach ($radios as $id => $data) {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" id="menuelms">
-        <li id="menu_home" class="menu_element"><a href="/smart/#show_all">Главная</a></li>
+        <li id="menu_home" class="menu_element"><a href="/smart/#show_all">Р“Р»Р°РІРЅР°СЏ</a></li>
         <li id="menu_led" class="menu_element"><a href="/smart/#led">LED</a></li>
-        <li id="menu_sound" class="menu_element"><a href="/smart/#sound">Звук</a></li>
-        <li id="menu_radio" class="menu_element"><a href="/smart/#radio">Радио</a></li>
-        <li id="menu_settings" class="menu_element active"><a href="settings.php">Настройки</a></li>
+        <li id="menu_sound" class="menu_element"><a href="/smart/#sound">Р—РІСѓРє</a></li>
+        <li id="menu_radio" class="menu_element"><a href="/smart/#radio">Р Р°РґРёРѕ</a></li>
+        <li id="menu_settings" class="menu_element active"><a href="settings.php">РќР°СЃС‚СЂРѕР№РєРё</a></li>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -108,32 +108,32 @@ foreach ($radios as $id => $data) {
 <div class="container widthfix">
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Настройки</h3>
+    <h3 class="panel-title">РќР°СЃС‚СЂРѕР№РєРё</h3>
   </div>
   <div class="panel-body">
   <div class="row">
   <div class="col-xs-12"><center>
-  <h3>Отображение настроек звука</h3><hr>
+  <h3>РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РЅР°СЃС‚СЂРѕРµРє Р·РІСѓРєР°</h3><hr>
   <form name="snd" method="post">
   <div class="row">
-	<div class="col-xs-3"><center><span class="glyphicon glyphicon-off" aria-hidden="true"></span><hr><select name="power" class="btn btn-default"><option value="0">Отключено</option><option value="1"<?php echo $sndse['power'];?>>Включено</option></select>
-	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><hr><select name="input" class="btn btn-default"><option value="0">Отключено</option><option value="1"<?php echo $sndse['input'];?>>Включено</option></select>
-	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span><hr><select name="mute" class="btn btn-default"><option value="0">Отключено</option><option value="1"<?php echo $sndse['mute'];?>>Включено</option></select>
-	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-sound-5-1" aria-hidden="true"></span><hr><select name="mode" class="btn btn-default"><option value="0">Отключено</option><option value="1"<?php echo $sndse['mode'];?>>Включено</option></select>
+	<div class="col-xs-3"><center><span class="glyphicon glyphicon-off" aria-hidden="true"></span><hr><select name="power" class="btn btn-default"><option value="0">РћС‚РєР»СЋС‡РµРЅРѕ</option><option value="1"<?php echo $sndse['power'];?>>Р’РєР»СЋС‡РµРЅРѕ</option></select>
+	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><hr><select name="input" class="btn btn-default"><option value="0">РћС‚РєР»СЋС‡РµРЅРѕ</option><option value="1"<?php echo $sndse['input'];?>>Р’РєР»СЋС‡РµРЅРѕ</option></select>
+	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span><hr><select name="mute" class="btn btn-default"><option value="0">РћС‚РєР»СЋС‡РµРЅРѕ</option><option value="1"<?php echo $sndse['mute'];?>>Р’РєР»СЋС‡РµРЅРѕ</option></select>
+	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-sound-5-1" aria-hidden="true"></span><hr><select name="mode" class="btn btn-default"><option value="0">РћС‚РєР»СЋС‡РµРЅРѕ</option><option value="1"<?php echo $sndse['mode'];?>>Р’РєР»СЋС‡РµРЅРѕ</option></select>
 	</center></div>
 	</div>
 	<br>
 	<br>
-  <button type="submit" class="btn btn-default" name="action" value="sound">Отправить</button>
+  <button type="submit" class="btn btn-default" name="action" value="sound">РћС‚РїСЂР°РІРёС‚СЊ</button>
   
   </form>
   
   <hr>
-  <h3>Список радио</h3><hr>
+  <h3>РЎРїРёСЃРѕРє СЂР°РґРёРѕ</h3><hr>
   <form name="radios" method="post">
   <input type="hidden" name="action" value="radio">
   <?php echo $radioecho; ?><br>
-  <button type="submit" class="btn btn-default">Отправить</button>
+  <button type="submit" class="btn btn-default">РћС‚РїСЂР°РІРёС‚СЊ</button>
   </form>
   </center>
   </div>

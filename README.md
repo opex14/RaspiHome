@@ -1,17 +1,17 @@
 # RaspiHome
 Please do not download it yet. It's barely working and contain very shitty code. Uploaded here just for backups at this time.
 
-~~Настройка LIRC~~
+--Настройка LIRC--
 
-1. sudo apt-get install lirc
+- sudo apt-get install lirc
 
-2. в /etc/modules: 
+- в /etc/modules: 
 ```
   lirc_dev
   lirc_rpi gpio_in_pin=23 gpio_out_pin=17
 ```
 
-3. в /etc/lirc/hardware.conf
+- в /etc/lirc/hardware.conf
 ```
   ########################################################
 # /etc/lirc/hardware.conf
@@ -40,12 +40,12 @@ LIRCMD_CONF=""
 ########################################################
 ```
 
-4. в /boot/config.txt
+- в /boot/config.txt
 ```
   dtoverlay=lirc-rpi,gpio_in_pin=23,gpio_out_pin=17
 ```
 
-5. в /etc/lirc/lircd.conf
+- в /etc/lirc/lircd.conf
 ```
 begin remote
 
@@ -84,4 +84,4 @@ begin remote
 end remote
 ```
 
-5. sudo reboot
+- sudo reboot

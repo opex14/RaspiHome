@@ -1,7 +1,7 @@
 # RaspiHome
 Please do not download it yet. It's barely working and contain very shitty code. Uploaded here just for backups at this time.
 
----------Настройка LIRC---------
+~~Настройка LIRC~~
 
 1. sudo apt-get install lirc
 

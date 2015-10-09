@@ -60,9 +60,28 @@
 </div>
 </div>
 
-<?php include 'html/led.html'; ?>
-<?php include 'html/sound.html'; ?>
-<?php include 'html/radio.html'; ?>
+
+
+<?php 
+
+ModulesHtml();
+
+function ModulesHtml() {
+    $mdir = __DIR__ .'/modules';
+    $files = scandir($mdir);
+    foreach ($files as $file) {
+        if ($file == '..' || $file == '.') {continue;}
+        $module = $mdir.'/'.$file;
+        if (is_dir($module)) {
+            $mpage = $module.'/page.php';
+            if (file_exists($mpage)) {
+                include $mpage;
+            }
+        }
+        
+    }
+}
+?>
 
 </body>
 	

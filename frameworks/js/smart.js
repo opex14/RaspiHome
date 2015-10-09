@@ -29,7 +29,7 @@ $(document).ready(function(){
 	
 	
         $.ajax({
-            url: '/smart/php/index.php',
+            url: '/smart/action.php',
             data: {m: 'radio', a: 'list'},
             dataType: 'json',
 			success: MakeRadio
@@ -55,25 +55,25 @@ $(window).on('hashchange', function() {
 
 function UpdateData() {
         $.ajax({
-            url: '/smart/php/index.php',
+            url: '/smart/action.php',
             data: {m: 'led', a: 'status'},
             dataType: 'json',
 			success: UpdLed
         });
         $.ajax({
-            url: '/smart/php/index.php',
+            url: '/smart/action.php',
             data: {m: 'wemo', a: 'status'},
             dataType: 'json',
 			success: UpdWemo
         });
         $.ajax({
-            url: '/smart/php/index.php',
+            url: '/smart/action.php',
             data: {m: 'radio', a: 'status'},
             dataType: 'json',
 			success: UpdRadio
         });
         $.ajax({
-            url: '/smart/php/index.php',
+            url: '/smart/action.php',
             data: {m: 'lirc', d: 'microlab', a: 'status'},
             dataType: 'json',
 			success: UpdSound
@@ -104,7 +104,7 @@ $("#radio_select").change(function() {
 	// var radi = $(this).val();
 	// if(radi != 'false') {
 	// $.ajax({
-            // url: '/smart/php/index.php',
+            // url: '/smart/action.php',
             // data: {m: 'radio', a: 'play', c: radi},
             // dataType: 'json',
 			// success: GoodAnswer,
@@ -201,7 +201,7 @@ $( ".postbtn" ).click(function() {
 			var rurl = $("#radio-open-url").val();
 			
 			$.ajax({
-				url: '/smart/php/index.php?d='+d+'&a='+a,
+				url: '/smart/action.php?d='+d+'&a='+a,
 				type: 'POST',
 				data: {url: rurl},
 				dataType: 'json',
@@ -212,7 +212,7 @@ $( ".postbtn" ).click(function() {
 			var addtitle = $("#radio-add-title").val();
 			var addurl = $("#radio-add-url").val();
 			$.ajax({
-				url: '/smart/php/index.php?d='+d+'&a='+a,
+				url: '/smart/action.php?d='+d+'&a='+a,
 				type: 'POST',
 				data: {title: addtitle, url: addurl},
 				dataType: 'json',
@@ -226,7 +226,7 @@ $( ".postbtn" ).click(function() {
 		time = typeof time !== 'undefined' ? time : null;
 		
 		    $.ajax({
-            url: '/smart/php/index.php',
+            url: '/smart/action.php',
             data: {m: mod, a: act, c: dat, t: time},
             dataType: 'json',
 			error: BadAnswer,
@@ -237,7 +237,7 @@ $( ".postbtn" ).click(function() {
 		dev = typeof dev !== 'undefined' ? dev : null;
 		
 		    $.ajax({
-            url: '/smart/php/index.php',
+            url: '/smart/action.php',
             data: {m: mod, a: act, c: dat, t: time, d: dev},
             dataType: 'json',
 			success: GoodAnswer,

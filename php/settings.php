@@ -1,14 +1,14 @@
 <?php
 //print_r($_POST);
-$snd = json_decode(file_get_contents('sound_status.json'), true);
-$radios = json_decode(file_get_contents('radio_list.json'), true);
+$snd = json_decode(file_get_contents('modules/lirc/sound_status.json'), true);
+$radios = json_decode(file_get_contents('modules/radio/radio_list.json'), true);
 if (isset($_POST['action'])) {
 	if ($_POST['action'] == 'sound') {
 		$snd['power'] = ($_POST['power'] == 1) ? true : false;
 		$snd['input'] = ($_POST['input'] == 1) ? true : false;
 		$snd['mute'] = ($_POST['mute'] == 1) ? true : false;
 		$snd['mode'] = ($_POST['mode'] == 1) ? true : false;
-		file_put_contents('sound_status.json', json_encode($snd));
+		file_put_contents('modules/lirc/sound_status.json', json_encode($snd));
 	} elseif ($_POST['action'] == 'radio') {
 		if (isset($_POST['radio_del'])) {
 			unset($radios[$_POST['radio_del']]);
@@ -21,7 +21,7 @@ if (isset($_POST['action'])) {
 				if ($data['url'] != $u2) {$radios[$id]['url'] = $u2;}
 			}
 		}
-		file_put_contents('radio_list.json', json_encode($radios, JSON_FORCE_OBJECT));
+		file_put_contents('modules/radio/radio_list.json', json_encode($radios, JSON_FORCE_OBJECT));
 	}
 }
 //print_r($radios);
@@ -148,6 +148,9 @@ foreach ($radios as $id => $data) {
 
 .glyphicon {
 	font-size: 22pt;
+}
+.glyphicon-trash {
+	font-size: 14pt;
 }
 
 </style>

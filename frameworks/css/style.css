@@ -1,7 +1,19 @@
 body { padding-top: 70px; }
+.bootstrap-select{margin-bottom:10px;}
 .head-snd-info {font-size: 2em; color:#CECECE;}
 .sendbtn{cursor: pointer;}
 .enabled {color:#000000;}
+.panels-led{height: 120px;}
+.panels-radio{height: 220px;}
+.panel{border-radius: 0;}
+.panel-heading{border-top-left-radius: 0; border-top-right-radius: 0;}
 @media (max-width: 768px) {
 .bt-desc {display:none;}
+}
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }

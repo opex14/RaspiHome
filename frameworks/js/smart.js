@@ -113,7 +113,7 @@ $("#radio_select").change(function() {
 	// }
 // });
 
-$("#led_mod").change(function() {
+$(".led_mod").change(function() {
 	Send('led', 'send', 'POWER=1;MASTERMODE=2;MOD='+$(this).val()+";");
 });
 $(".led_eff").change(function() {
@@ -271,15 +271,15 @@ $( ".postbtn" ).click(function() {
 	$("input[name='led_bright']").slider('setValue', parseInt(data['BRIGHTNESS']));
 	$("input[name='led_speed']").slider('setValue', parseInt(data['SPEED']));
 	
-	 $('#led_mod').selectpicker('val', data['MOD']);
+	 $('.led_mod').selectpicker('val', data['MOD']);
 	 $('.led_eff').selectpicker('val', data['EFFECT']);
 	 
 	if (data['MOD'] == 1 || data['MOD'] == 2) {
-		$('#led_eff_s').selectpicker('hide');
-		$('#led_eff_m').selectpicker('show');
+		$('.led_eff_s').selectpicker('hide');
+		$('.led_eff_m').selectpicker('show');
 	} else {
-		$('#led_eff_m').selectpicker('hide');
-		$('#led_eff_s').selectpicker('show');
+		$('.led_eff_m').selectpicker('hide');
+		$('.led_eff_s').selectpicker('show');
 	}
 	}
 	

@@ -37,8 +37,8 @@
   
   <div class="col-xs-6"><center>
   
-  <input type="checkbox" data-size="large" data-on-color="warning" class="bs-switch" name="wemo_power">
-  <hr><input type="checkbox" data-size="large" class="bs-switch" name="led_power">
+  <input type="checkbox" data-size="large" data-on-color="danger" class="bs-switch" name="wemo_power">
+  <hr><input type="checkbox" data-size="large" data-on-color="warning" class="bs-switch" name="led_power">
   
   </center></div>
   

@@ -6,6 +6,20 @@ body { padding-top: 70px; }
 .panels-led{height: 120px;}
 .panels-radio{height: 220px;}
 .panel{border-radius: 0;}
+
+.slider-handle {
+	background-color: #B73933;
+    background-image: none;
+}
+.panel-primary>.panel-heading  {
+    background-color: #B73933;
+    border-color: #B73933;
+}
+
+.panel-primary {
+    border-color: #B73933;
+}
+	
 .panel-heading{border-top-left-radius: 0; border-top-right-radius: 0;}
 @media (max-width: 768px) {
 .bt-desc {display:none;}

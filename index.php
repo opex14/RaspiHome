@@ -47,10 +47,10 @@
   <span id="radio_status"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Загрузка...</span>
   <hr>
   <div class="head-snd-info">
-  <span id="snd_power" data-d="microlab" data-a="POWER" data-t="1" data-c="" class="glyphicon glyphicon-off sendbtn" aria-hidden="true"></span>
-  <span id="snd_input" data-d="microlab" data-a="INPUT" data-t="1" data-c="" class="glyphicon glyphicon-dashboard sendbtn" aria-hidden="true"></span>
-  <span id="snd_mute" data-d="microlab" data-a="MUTE" data-t="1" data-c="" class="glyphicon glyphicon-volume-off sendbtn" aria-hidden="true"></span>
-  <span id="snd_mode" data-d="microlab" data-a="MODE" data-t="1" data-c="" class="glyphicon glyphicon-sound-5-1 sendbtn" aria-hidden="true"></span>
+  <span id="snd_power" data-m="lirc" data-d="Microlab" data-a="POWER" data-t="1" data-c="" class="glyphicon glyphicon-off sendbtn" aria-hidden="true"></span>
+  <span id="snd_input" data-m="lirc" data-d="Microlab" data-a="INPUT" data-t="1" data-c="" class="glyphicon glyphicon-dashboard sendbtn" aria-hidden="true"></span>
+  <span id="snd_mute" data-m="lirc" data-d="Microlab" data-a="MUTE" data-t="1" data-c="" class="glyphicon glyphicon-volume-off sendbtn" aria-hidden="true"></span>
+  <span id="snd_mode" data-m="lirc" data-d="Microlab" data-a="MODE" data-t="1" data-c="" class="glyphicon glyphicon-sound-5-1 sendbtn" aria-hidden="true"></span>
   </div>
   </center></div>
   

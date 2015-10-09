@@ -116,10 +116,10 @@ foreach ($radios as $id => $data) {
   <h3>Отображение настроек звука</h3><hr>
   <form name="snd" method="post">
   <div class="row">
-	<div class="col-xs-3"><center><span class="glyphicon glyphicon-off" aria-hidden="true"></span><hr><select name="power" class="btn btn-default"><option value="0">Отключено</option><option value="1"<?php echo $sndse['power'];?>>Включено</option></select>
-	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><hr><select name="input" class="btn btn-default"><option value="0">Отключено</option><option value="1"<?php echo $sndse['input'];?>>Включено</option></select>
-	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span><hr><select name="mute" class="btn btn-default"><option value="0">Отключено</option><option value="1"<?php echo $sndse['mute'];?>>Включено</option></select>
-	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-sound-5-1" aria-hidden="true"></span><hr><select name="mode" class="btn btn-default"><option value="0">Отключено</option><option value="1"<?php echo $sndse['mode'];?>>Включено</option></select>
+	<div class="col-xs-3"><center><span class="glyphicon glyphicon-off" aria-hidden="true"></span><hr><select name="power" class="btn btn-default"><option value="0">O</option><option value="1"<?php echo $sndse['power'];?>>I</option></select>
+	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><hr><select name="input" class="btn btn-default"><option value="0">O</option><option value="1"<?php echo $sndse['input'];?>>I</option></select>
+	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span><hr><select name="mute" class="btn btn-default"><option value="0">O</option><option value="1"<?php echo $sndse['mute'];?>>I</option></select>
+	</center></div><div class="col-xs-3"><center><span class="glyphicon glyphicon-sound-5-1" aria-hidden="true"></span><hr><select name="mode" class="btn btn-default"><option value="0">O</option><option value="1"<?php echo $sndse['mode'];?>>I</option></select>
 	</center></div>
 	</div>
 	<br>

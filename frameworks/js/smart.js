@@ -30,7 +30,7 @@ $(document).ready(function(){
 	
         $.ajax({
             url: '/smart/php/index.php',
-            data: {d: 'radio', a: 'list'},
+            data: {m: 'radio', a: 'list'},
             dataType: 'json',
 			success: MakeRadio
         });
@@ -56,25 +56,25 @@ $(window).on('hashchange', function() {
 function UpdateData() {
         $.ajax({
             url: '/smart/php/index.php',
-            data: {d: 'led', a: 'status'},
+            data: {m: 'led', a: 'status'},
             dataType: 'json',
 			success: UpdLed
         });
         $.ajax({
             url: '/smart/php/index.php',
-            data: {d: 'wemo', a: 'status'},
+            data: {m: 'wemo', a: 'status'},
             dataType: 'json',
 			success: UpdWemo
         });
         $.ajax({
             url: '/smart/php/index.php',
-            data: {d: 'radio', a: 'status'},
+            data: {m: 'radio', a: 'status'},
             dataType: 'json',
 			success: UpdRadio
         });
         $.ajax({
             url: '/smart/php/index.php',
-            data: {d: 'microlab', a: 'status'},
+            data: {m: 'lirc', d: 'microlab', a: 'status'},
             dataType: 'json',
 			success: UpdSound
         });
@@ -105,7 +105,7 @@ $("#radio_select").change(function() {
 	// if(radi != 'false') {
 	// $.ajax({
             // url: '/smart/php/index.php',
-            // data: {d: 'radio', a: 'play', c: radi},
+            // data: {m: 'radio', a: 'play', c: radi},
             // dataType: 'json',
 			// success: GoodAnswer,
 			// error: BadAnswer,
@@ -162,19 +162,20 @@ $("input[name='led_speed']").on("slide", function(slideEvt) {
 $( ".sendbtn" ).click(function() {
     var thisbtn = $(this);
 	var a = thisbtn.attr("data-a");
+	var m = thisbtn.attr("data-m");
 	var d = thisbtn.attr("data-d");
 	var t = thisbtn.attr("data-t");
 	var c = thisbtn.attr("data-c");
-	if(!a || !d || !t) {
+	if(!a || !m || !t) {
 	BadAnswer();
 	} else {
 	if (!c) {
-	Send(d, a, 'SEND_ONCE', t);
+	Send(m, a, 'SEND_ONCE', t, d);
 	} else {
-		if (d == 'radio' && a == 'play') {
+		if (m == 'radio' && a == 'play') {
 			c = $("#radio_select").val();
 		}
-		Send(d, a, c, t);
+		Send(m, a, c, t);
 	}
 	
 	}
@@ -221,22 +222,23 @@ $( ".postbtn" ).click(function() {
 	}
 	}
 });
-	function slSend(dev, act, dat, time) {
+	function slSend(mod, act, dat, time) {
 		time = typeof time !== 'undefined' ? time : null;
 		
 		    $.ajax({
             url: '/smart/php/index.php',
-            data: {d: dev, a: act, c: dat, t: time},
+            data: {m: mod, a: act, c: dat, t: time},
             dataType: 'json',
 			error: BadAnswer,
         });
 	}
-	function Send(dev, act, dat, time) {
+	function Send(mod, act, dat, time, dev) {
 		time = typeof time !== 'undefined' ? time : null;
+		dev = typeof dev !== 'undefined' ? dev : null;
 		
 		    $.ajax({
             url: '/smart/php/index.php',
-            data: {d: dev, a: act, c: dat, t: time},
+            data: {m: mod, a: act, c: dat, t: time, d: dev},
             dataType: 'json',
 			success: GoodAnswer,
 			error: BadAnswer,

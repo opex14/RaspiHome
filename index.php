@@ -64,10 +64,25 @@
 
 <?php 
 
-ModulesHtml();
+ModulesInclude();
 
-function ModulesHtml() {
+
+?>
+
+</body>
+	
+<script src="frameworks/js/smart.js"></script>
+</html>
+
+<?php
+
+function ModulesInclude() {
+    var_dump(Modules());
+}
+
+function Modules() {
     $mdir = __DIR__ .'/modules';
+    $out = array();
     $files = scandir($mdir);
     foreach ($files as $file) {
         if ($file == '..' || $file == '.') {continue;}
@@ -75,15 +90,15 @@ function ModulesHtml() {
         if (is_dir($module)) {
             $mpage = $module.'/page.php';
             if (file_exists($mpage)) {
-                include $mpage;
+                $info = $module.'/info.txt';
+                $mtitle = (file_exists($info)) ? file_get_contents($info) : $file;
+            $out[] = array('mod' => $file, 'title' => $mtitle);
             }
         }
-        
     }
+    return $out;
 }
-?>
 
-</body>
-	
-<script src="frameworks/js/smart.js"></script>
-</html>
+
+
+?>

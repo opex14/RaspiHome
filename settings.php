@@ -60,21 +60,21 @@ foreach ($radios as $id => $data) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">   
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="shortcut icon" href="../circle.png">
-<link rel="apple-touch-icon" href="../circle.png"/>
+<link rel="shortcut icon" href="circle.png">
+<link rel="apple-touch-icon" href="circle.png"/>
  
  
-<link rel="stylesheet" href="../frameworks/css/bootstrap.min.css">
-<link rel="stylesheet" href="../frameworks/css/bootstrap-switch.css">
-<link rel="stylesheet" href="../frameworks/css/bootstrap-slider.min.css">
-<link rel="stylesheet" href="../frameworks/css/style.css">
+<link rel="stylesheet" href="frameworks/css/bootstrap.min.css">
+<link rel="stylesheet" href="frameworks/css/bootstrap-switch.css">
+<link rel="stylesheet" href="frameworks/css/bootstrap-slider.min.css">
+<link rel="stylesheet" href="frameworks/css/style.css">
 
-<script src="../frameworks/js/jquery-1.11.3.min.js"></script>
-<script src="../frameworks/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="frameworks/js/jquery-1.11.3.min.js"></script>
+<script src="frameworks/js/jquery-migrate-1.2.1.min.js"></script>
 
-<script src="../frameworks/js/bootstrap.js"></script>
-<script src="../frameworks/js/bootstrap-switch.js"></script>
-<script src="../frameworks/js/bootstrap-slider.min.js"></script>
+<script src="frameworks/js/bootstrap.js"></script>
+<script src="frameworks/js/bootstrap-switch.js"></script>
+<script src="frameworks/js/bootstrap-slider.min.js"></script>
 
 
 </head>

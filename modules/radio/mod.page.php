@@ -1,0 +1,85 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#radio">Радио</a>
+    </div>
+  </div>
+</nav>
+  <div class="row">
+  
+  
+  <div class="col-xs-12 col-md-6">
+<div class="panel panel-primary panels-radio">
+  <div class="panel-heading">
+    <h3 class="panel-title">Управление</h3>
+  </div>
+  <div class="panel-body">
+  <center>
+
+	
+	<select id="radio_select" name="c" class="selectpicker" title="Радиостанции"></select>
+<br style="margin-top: 10px;">
+		<button type="button" data-m="radio" data-a="stop" data-t="1" data-c="" class="btn btn-default sendbtn">
+	<span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
+	
+	<button type="button" data-m="radio" data-a="play" data-t="1" data-c="0" class="btn btn-default radlsch sendbtn">
+	<span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+	
+	<button type="button" data-a="local" class="btn btn-default radlsch radiobtn">
+	<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span></button>
+	<hr>
+	<button type="button" data-m="lirc" data-d="Microlab" data-a="VOL_UP" data-t="1" data-c="" class="btn btn-default sendbtn">
+					<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span></button>
+					<button type="button" data-m="lirc" data-d="Microlab" data-a="VOL_DOWN" data-t="1" data-c="" class="btn btn-default sendbtn">
+					<span class="glyphicon glyphicon-volume-down" aria-hidden="true"></span></button>
+					<button type="button" data-m="lirc" data-d="Microlab" data-a="MUTE" data-t="1" data-c="" class="btn btn-default sendbtn">
+					<span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span></button>
+	<button type="button" data-m="lirc" data-d="Microlab" data-a="INPUT" data-t="1" data-c="" class="btn btn-default sendbtn">
+					<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span></button>
+  </center>
+  </div>
+  </div>
+  </div>
+  
+  <div class="col-xs-12 col-md-6">
+<div class="panel panel-primary panels-radio">
+  <div class="panel-heading">
+    <h3 class="panel-title">Открыть URL</h3>
+  </div>
+  <div class="panel-body" style="margin-top: 40px;">
+  <center>
+  
+	<div class="input-group input-group-lg">
+	<input type="text" id="radio-open-url" class="form-control" placeholder="Ссылка" aria-describedby="sizing-addon1">
+      <span class="input-group-btn">
+        <button class="btn btn-default postbtn" data-m="radio" data-a="url" type="button"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+      </span>
+	</div>
+  </center>
+  </div>
+  </div>
+  </div>
+  
+  
+  <div class="col-xs-12 col-md-6">
+<div class="panel panel-primary panels-radio">
+  <div class="panel-heading">
+    <h3 class="panel-title">Добавить радио</h3>
+  </div>
+  <div class="panel-body">
+  <center>
+  
+	<input type="text" id="radio-add-title" class="form-control" placeholder="Название">
+	<br>
+	<input type="text" id="radio-add-url" class="form-control" placeholder="Ссылка">
+	 <br>
+	
+    <button class="btn btn-default btn-lg postbtn" data-m="radio" data-a="add" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+	
+  </center>
+  </div>
+  </div>
+  </div>
+
+  
+</div>

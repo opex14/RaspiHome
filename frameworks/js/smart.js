@@ -40,7 +40,7 @@ $(document).ready(function(){
 $(window).on('hashchange', function() {
   hash = window.location.hash.substr(1);
 	if (hash.length == 0) {
-		hash = 'home';
+		hash = 'show_all';
 	}
 	$(".navbar-collapse").collapse('hide');
   	$(".menu_element").removeClass("active");

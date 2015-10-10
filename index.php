@@ -27,9 +27,31 @@
 
 </head>
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="#"><span id="answersrv" class="label label-default">RaspiHome</span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" id="menuelms">
+	  <li id="menu_show_all" class="menu_element"><a href="#show_all">Всё</a></li>
+<?php 
 
-<?php include 'html/menu.html'; ?>
+$modules = Modules();
+echo MakeMenu($modules); 
 
+?>
+      <li id="menu_radio" class="menu_element"><a href="settings.php">Настройки</a></li>
+    </ul>
+	</div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 <div class="container widthfix">
 <div class="panel panel-default">
   <div class="panel-body">
@@ -64,7 +86,7 @@
 
 <?php 
 
-ModulesInclude();
+ModulesInclude($modules);
 
 
 ?>
@@ -76,8 +98,27 @@ ModulesInclude();
 
 <?php
 
-function ModulesInclude() {
-    var_dump(Modules());
+function ModulesInclude($modules) {
+    foreach ($modules as $mid => $minf) {
+		if ($minf['page']) {
+			$module = __DIR__ .'/modules/'.$mid;
+            $mpage = $module.'/mod.page.php';
+			
+			echo '<div class="container main_section widthfix" style="display: none;" id="section_'.$mid.'">';
+			include $mpage;
+			echo '</div>';
+		}
+	}
+}
+
+function MakeMenu($modules) {
+	$out = '';
+    foreach ($modules as $mid => $minf) {
+		if ($minf['menu']) {
+			$out .= '<li id="menu_'.$mid.'" class="menu_element"><a href="#'.$mid.'">'.$minf['title'].'</a></li>';
+		}
+	}
+	return $out;
 }
 
 function Modules() {
@@ -85,20 +126,19 @@ function Modules() {
     $out = array();
     $files = scandir($mdir);
     foreach ($files as $file) {
-        if ($file == '..' || $file == '.') {continue;}
+        if ($file == '..' || $file == '.') continue;
         $module = $mdir.'/'.$file;
         if (is_dir($module)) {
-            $mpage = $module.'/page.php';
-            if (file_exists($mpage)) {
-                $info = $module.'/info.txt';
-                $mtitle = (file_exists($info)) ? file_get_contents($info) : $file;
-            $out[] = array('mod' => $file, 'title' => $mtitle);
+            $minfo = $module.'/mod.info.php';
+            $mpage = $module.'/mod.page.php';
+            if (file_exists($minfo)) {
+				include $minfo;
+				if (empty($inf) || $inf['page'] == true && !file_exists($mpage)) continue;
+				$out[$file] = $inf;
             }
         }
     }
     return $out;
 }
-
-
 
 ?>

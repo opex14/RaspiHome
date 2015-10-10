@@ -4,5 +4,6 @@ $inf = array(
 	'menu' => true,
 	'page' => true,
 	'author' => 'Opex',
+    'enabled' => true,
 );
 ?>

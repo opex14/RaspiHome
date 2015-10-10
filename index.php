@@ -52,40 +52,13 @@ echo MakeMenu($modules);
 	</div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container widthfix">
-<div class="panel panel-default">
-  <div class="panel-body">
-  <div class="row">
-  
-  <div class="col-xs-6"><center>
-  
-  <input type="checkbox" data-size="large" data-on-color="danger" class="bs-switch" name="wemo_power">
-  <hr><input type="checkbox" data-size="large" data-on-color="warning" class="bs-switch" name="led_power">
-  
-  </center></div>
-  
-  <div class="col-xs-6"><center>
-  
-  <span id="radio_status"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Загрузка...</span>
-  <hr>
-  <div class="head-snd-info">
-  <span id="snd_power" data-m="lirc" data-d="Microlab" data-a="POWER" data-t="1" data-c="" class="glyphicon glyphicon-off sendbtn" aria-hidden="true"></span>
-  <span id="snd_input" data-m="lirc" data-d="Microlab" data-a="INPUT" data-t="1" data-c="" class="glyphicon glyphicon-dashboard sendbtn" aria-hidden="true"></span>
-  <span id="snd_mute" data-m="lirc" data-d="Microlab" data-a="MUTE" data-t="1" data-c="" class="glyphicon glyphicon-volume-off sendbtn" aria-hidden="true"></span>
-  <span id="snd_mode" data-m="lirc" data-d="Microlab" data-a="MODE" data-t="1" data-c="" class="glyphicon glyphicon-sound-5-1 sendbtn" aria-hidden="true"></span>
-  </div>
-  </center></div>
-  
-</div>
 
-  </div>
-</div>
-</div>
+
 
 
 
 <?php 
-
+IncludeHeader($modules);
 ModulesInclude($modules);
 
 
@@ -104,11 +77,20 @@ function ModulesInclude($modules) {
 			$module = __DIR__ .'/modules/'.$mid;
             $mpage = $module.'/mod.page.php';
 			
-			echo '<div class="container main_section widthfix" style="display: none;" id="section_'.$mid.'">';
 			include $mpage;
-			echo '</div>';
 		}
 	}
+}
+
+function IncludeHeader($modules) {
+    foreach ($modules as $mid => $minf) {
+        if ($minf['header']) {
+			$module = __DIR__ .'/modules/'.$mid;
+            $mpage = $module.'/mod.page.php';
+			
+			include $mpage;
+        }
+    }
 }
 
 function MakeMenu($modules) {
@@ -133,7 +115,7 @@ function Modules() {
             $mpage = $module.'/mod.page.php';
             if (file_exists($minfo)) {
 				include $minfo;
-				if (empty($inf) || $inf['page'] == true && !file_exists($mpage)) continue;
+				if ( empty($inf) || ($inf['page'] == true && !file_exists($mpage)) || isset($inf['enabled']) && !$inf['enabled']) continue;
 				$out[$file] = $inf;
             }
         }

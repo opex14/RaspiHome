@@ -1,3 +1,5 @@
+<?php $mod = basename(__DIR__);?>
+<div class="container main_section widthfix" style="display: none;" id="section_<?php echo $mod; ?>">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -139,4 +141,5 @@
 		  </div>
 		  
 	   </div>
+	</div>
 	</div>

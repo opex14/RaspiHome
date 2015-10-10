@@ -2,6 +2,8 @@ var hash = window.location.hash.substr(1);
 var wemo;
 var led;
 var radiols;
+var maxloads = 4;
+var loads = 0;
 var radio = "";
 var snd_status = "";
 if (hash.length == 0) {
@@ -34,7 +36,6 @@ $(document).ready(function(){
             dataType: 'json',
 			success: MakeRadio
         });
-	
     });
 	
 $(window).on('hashchange', function() {
@@ -283,6 +284,7 @@ $( ".postbtn" ).click(function() {
 		$('.led_eff_m').selectpicker('hide');
 		$('.led_eff_s').selectpicker('show');
 	}
+	LoadScreen();
 	}
 	
 	function UpdRadio(data){
@@ -293,7 +295,9 @@ $( ".postbtn" ).click(function() {
 		$("#radio_status").html('<h4><span class="glyphicon glyphicon-stop" aria-hidden="true"></span> '+data['title']+'</h4>');
 	}
 	radio = data['title']; 
-	}}
+	}
+	LoadScreen();
+	}
 	
 	function Refresh() {
 		location.reload();
@@ -307,6 +311,7 @@ $( ".postbtn" ).click(function() {
 		$("input[name='wemo_power']").bootstrapSwitch('state', false);
 		wemo = false;
 	}
+	LoadScreen();
 	}
 	
 	function UpdSound(data){
@@ -330,4 +335,15 @@ $( ".postbtn" ).click(function() {
 			if (data['mode']) $("#snd_mode").addClass("enabled");
 			snd_status = data;
 			}
+			LoadScreen();
+	}
+	
+	function LoadScreen() {
+		if (loads < maxloads) {
+		 loads++;
+		 if (loads == maxloads) {
+		 $('.loading-ov').hide(400);
+		 }
+		}
+	
 	}

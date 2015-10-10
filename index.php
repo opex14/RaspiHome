@@ -24,7 +24,7 @@
 <script src="frameworks/js/bootstrap-slider.min.js"></script>
 <script src="frameworks/js/bootstrap-select.min.js"></script>
 
-
+<div class="loading-ov"></div>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">

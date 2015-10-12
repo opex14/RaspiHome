@@ -1,5 +1,6 @@
 <?php
 if(!defined('RASPIHOME')) die('USE MAIN SCRIPT!');
+include __DIR__ . '/config.php';
 $c = (isset($c)) ? intval($c) : false;
 $radios = json_decode(file_get_contents(__DIR__ . '/radio_list.json'), true);
 $rstatus = json_decode(file_get_contents(__DIR__ . '/radio_status.json'), true);
@@ -48,7 +49,8 @@ if ($a == 'play') {
 }
 
 function SendPi($a, $url = ''){
-	$ch = curl_init("http://raspi/rem/radio.php?a=".$a);
+    global $cfg;
+	$ch = curl_init($cfg['url']."?a=".$a);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 curl_setopt($ch, CURLOPT_TIMEOUT, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, array("url" => $url));

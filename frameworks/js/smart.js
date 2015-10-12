@@ -2,6 +2,7 @@ var hash = window.location.hash.substr(1);
 var wemo;
 var led;
 var radiols;
+var is_active = true;
 var maxloads = 4;
 var loads = 0;
 var radio = "";
@@ -10,6 +11,22 @@ if (hash.length == 0) {
 	hash = 'show_all';
 }
 
+$(window).on("blur focus", function(e) {
+    var prevType = $(this).data("prevType");
+
+    if (prevType != e.type) {   //  reduce double fire issues
+        switch (e.type) {
+            case "blur":
+                is_active = false;
+                break;
+            case "focus":
+                is_active = true;
+                break;
+        }
+    }
+    UpdateData();
+    $(this).data("prevType", e.type);
+});
 
 $(document).ready(function(){
 		$(".bs-switch").bootstrapSwitch('labelWidth', 50);

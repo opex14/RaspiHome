@@ -4,13 +4,13 @@ $c = (isset($c)) ? intval($c) : false;
 $radios = json_decode(file_get_contents(__DIR__ . '/radio_list.json'), true);
 $rstatus = json_decode(file_get_contents(__DIR__ . '/radio_status.json'), true);
 if ($a == 'play') {
-	PlayUrl($radios[$c]['url']);
+	SendPi('play', $radios[$c]['url']);
 	$output = array('status'=>'play', 'title' => $radios[$c]['title'], 'track' => 'Unknown', 'id' => $c);
 	file_put_contents(__DIR__ . '/radio_status.json', json_encode($output));
 	flush();
 
 } elseif ($a == 'stop') {
-	shell_exec('killall mplayer');
+	SendPi('stop');
 	$output = array('status'=>'stop', 'title' => 'Радио выключено', 'track' => '', 'id' => null);
 	file_put_contents(__DIR__ . '/radio_status.json', json_encode($output));
 	
@@ -45,6 +45,20 @@ if ($a == 'play') {
 } else {
 	header('HTTP/1.0 500 Internal Server Error');	
 	die('WRONG');
+}
+
+function SendPi($a, $url = ''){
+	$ch = curl_init("http://raspi/rem/radio.php?a=".$a);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+curl_setopt($ch, CURLOPT_TIMEOUT, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, array("url" => $url));
+$response = curl_exec($ch);
+curl_close($ch);
+if ($response == 'OK') {
+	return true;
+} else {
+	suicide($response);
+}
 }
 
 function PlayUrl($url) {
